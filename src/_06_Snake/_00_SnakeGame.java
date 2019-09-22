@@ -75,7 +75,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 
 	public void startGame() {
 		//1. Save the instructions for the game in the following string variable.
-		String instructions = "";
+		String instructions = "IDK WHAT THE INSTRUCTIONS ARE";
 		
 		String[] options = new String[] { "Expert", "Moderate", "Beginner" };
 		int input = JOptionPane.showOptionDialog(null, instructions, "Snake", 0, -1, null, options, 0);
@@ -87,6 +87,17 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//   of the game. The smaller the number, the faster it goes.
 
 		//3. start the timer
+		switch(choice) {
+		case "Expert":
+			timer.setDelay(30);
+			break;
+		case "Moderate":
+			timer.setDelay(150);
+			break;
+		case "Beginner":
+			timer.setDelay(300);
+			break;
+		}
 	}
 
 	public static void main(String[] args) {
@@ -108,7 +119,12 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		// direction accordingly
 		
 		// if the space key is pressed, call the snake's feed method
-		
+		switch(e.getKeyCode()) {
+		case e.VK_W:
+			snake.setDirection(Direction.UP);
+			break;
+			
+		}
 	}
 
 	private void setFoodLocation() {
