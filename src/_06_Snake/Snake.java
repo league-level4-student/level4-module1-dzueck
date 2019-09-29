@@ -74,31 +74,31 @@ public class Snake {
 		if(canMove) {
 			switch(d) {
 			case UP:
-				if(d != Direction.DOWN) {
+				if(currentDirection != Direction.DOWN) {
 					currentDirection = d;
 					canMove = false;
 				}
 				break;
 			case DOWN:
-				if(d != Direction.UP) {
+				if(currentDirection != Direction.UP) {
 					currentDirection = d;
 					canMove = false;
 				}
 				break;
 			case LEFT:
-				if(d != Direction.RIGHT) {
+				if(currentDirection != Direction.RIGHT) {
 					currentDirection = d;
 					canMove = false;
 				}
 				break;
 			case RIGHT:
-				if(d != Direction.LEFT) {
+				if(currentDirection != Direction.LEFT) {
 					currentDirection = d;
 					canMove = false;
 				}
 				break;
 			}
-			}
+			
 		}
 		
 	}
@@ -118,7 +118,7 @@ public class Snake {
 	public boolean isOutOfBounds() {
 		//1. complete the method so it returns true if the head of the snake is outside of the window
 		//   and false otherwise
-		if(head.getLocation().x < 0 || head.getLocation().x > 15 || head.getLocation().y < 0 || head.getLocation().y > 12) {
+		if(head.getLocation().x < 0 || head.getLocation().x > 15 - 1 || head.getLocation().y < 0 || head.getLocation().y > 12 - 1) {
 			return true;
 		}
 		
@@ -140,7 +140,7 @@ public class Snake {
 	public boolean isLocationOnSnake(Location loc) {
 		//1. complete the method so it returns true if the passed in
 		//   location is located on the snake
-		for(int i = 1; i < snake.size(); i++) {
+		for(int i = 0; i < snake.size(); i++) {
 			if(loc.x == snake.get(i).getLocation().x && loc.y == snake.get(i).getLocation().y) {
 				return true;
 			}
